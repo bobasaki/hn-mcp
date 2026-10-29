@@ -19,7 +19,7 @@ Five read-only tools:
 uv sync
 uv run mcp dev src/hn_mcp/server.py          # Inspector, stdio
 uv run mcp run src/hn_mcp/server.py --transport streamable-http   # HTTP
-uv run pytest                                 # 34 tests, no network
+uv run pytest                                 # 45 tests, no network
 ```
 
 ## Architecture
