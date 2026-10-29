@@ -1,0 +1,33 @@
+[project]
+name = "hn-mcp"
+version = "0.1.0"
+description = "An MCP server for Hacker News"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.28.1",
+    "mcp[cli]>=2.3.0",
+]
+
+# Console entry point, so the server can be launched as `hn-mcp` once
+# installed. MCP host configs point at this rather than a file path.
+[project.scripts]
+hn-mcp = "hn_mcp.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/hn_mcp"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "pytest-asyncio>=1.4.1",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
